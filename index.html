@@ -1,0 +1,1135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Akdeniz Mediterranean BBQ · Turkish Charcoal Grill · East Road, Cambridge · 01223 301 388</title>
+<meta name="description" content="Akdeniz Mediterranean BBQ — Turkish charcoal grill on East Road in Cambridge since 2013. Karişik kebab, İskender, kuzu incik, mezes and sharing platters. Open until midnight. Call 01223 301 388.">
+<meta name="theme-color" content="#2D1A11">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..900,30..100;1,9..144,400..700,30..100&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ─── tokens ────────────────────────────────────────────────────────── */
+:root{
+  --brick:   #8B3A3A;          /* Turkish red · kilim · paprika */
+  --brick-2: #6E2A2A;          /* deeper brick on hover */
+  --paper:   #F4E4BC;          /* lokum cream · brief secondary */
+  --bone:    #FBF5E6;          /* warm paper · soft surfaces */
+  --ember:   #D08760;          /* terracotta copper · accent */
+  --ember-2: #B86D44;          /* charred copper */
+  --smoke:   #2D1A11;          /* charcoal · primary ink */
+  --smoke-2: #1A0E08;          /* deepest ink · footer */
+  --rule:    rgba(45,26,17,.16);
+
+  --serif:   "Fraunces", "Iowan Old Style", Georgia, serif;
+  --sans:    "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --rhythm:  clamp(1rem, .85rem + .35vw, 1.125rem);
+  --gutter:  clamp(1.25rem, 2vw + .5rem, 2.25rem);
+  --max:     min(96rem, 100% - calc(var(--gutter) * 2));
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth }
+body{
+  margin:0;
+  font-family:var(--sans);
+  font-size:var(--rhythm);
+  line-height:1.55;
+  color:var(--smoke);
+  background:var(--paper);
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,h4{
+  font-family:var(--serif);
+  font-weight:700;
+  font-variation-settings:"opsz" 144, "SOFT" 60;
+  letter-spacing:-0.02em;
+  line-height:1.02;
+  text-wrap:balance;
+  margin:0;
+}
+p{ text-wrap:pretty; hyphens:auto; margin:0 0 1em; }
+
+/* paper grain · two-layer radial dot — kills the flat AI look */
+body::before{
+  content:""; position:fixed; inset:0;
+  pointer-events:none; z-index:1; opacity:.5; mix-blend-mode:multiply;
+  background:
+    radial-gradient(rgba(45,26,17,.06) 1px, transparent 1.4px) 0 0/4px 4px,
+    radial-gradient(rgba(45,26,17,.04) 1px, transparent 1.4px) 2px 2px/6px 6px;
+}
+
+/* ─── nav ───────────────────────────────────────────────────────────── */
+.nav{
+  position:sticky; top:0; z-index:30;
+  display:grid; grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  padding:.9rem var(--gutter);
+  background:rgba(45,26,17,.92);
+  backdrop-filter:saturate(140%) blur(6px);
+  color:var(--paper);
+  border-bottom:1px solid rgba(244,228,188,.14);
+}
+.nav__brand{
+  font-family:var(--serif);
+  font-variation-settings:"opsz" 24, "SOFT" 30;
+  font-weight:600;
+  font-size:1.15rem;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  text-decoration:none;
+}
+.nav__brand em{
+  font-style:italic;
+  color:var(--ember);
+  font-variation-settings:"opsz" 24, "SOFT" 100;
+  margin-right:.25em;
+}
+.nav__links{
+  display:flex; gap:1.4rem; justify-self:center;
+  list-style:none; padding:0; margin:0;
+  font-size:.82rem; letter-spacing:.16em; text-transform:uppercase;
+  font-weight:500;
+}
+.nav__links a{
+  text-decoration:none; position:relative; padding-bottom:.2rem;
+  color:rgba(244,228,188,.78); transition:color .25s ease;
+}
+.nav__links a::after{
+  content:""; position:absolute; left:0; right:100%; bottom:0;
+  height:1px; background:var(--ember); transition:right .35s ease;
+}
+.nav__links a:hover{ color:var(--paper); }
+.nav__links a:hover::after{ right:0; }
+.nav__call{
+  justify-self:end;
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-family:var(--serif);
+  font-variation-settings:"opsz" 24, "SOFT" 50;
+  font-weight:600; font-size:1.02rem;
+  color:var(--paper);
+  text-decoration:none;
+  padding:.45rem .9rem;
+  border:1px solid rgba(244,228,188,.34);
+  border-radius:999px;
+  transition:background .25s ease, border-color .25s ease;
+}
+.nav__call:hover{ background:var(--brick); border-color:var(--brick); }
+.nav__call::before{
+  content:""; width:.55rem; height:.55rem; border-radius:999px;
+  background:var(--ember); box-shadow:0 0 0 0 rgba(208,135,96,.6);
+  animation:pulse 2.4s ease-out infinite;
+}
+@keyframes pulse{
+  0%{ box-shadow:0 0 0 0 rgba(208,135,96,.6); }
+  70%{ box-shadow:0 0 0 .55rem rgba(208,135,96,0); }
+  100%{ box-shadow:0 0 0 0 rgba(208,135,96,0); }
+}
+@media (max-width: 48rem){
+  .nav__links{ display:none; }
+  .nav{ grid-template-columns:1fr auto; }
+}
+
+/* ─── hero · charcoal ember ────────────────────────────────────────── */
+.hero{
+  position:relative;
+  background:var(--smoke);
+  color:var(--paper);
+  overflow:hidden;
+  isolation:isolate;
+  padding:clamp(3rem, 8vw, 7rem) var(--gutter) clamp(2.5rem, 6vw, 5rem);
+}
+@property --ember-angle { syntax:"<angle>"; initial-value:0deg; inherits:false; }
+.hero::before{
+  content:""; position:absolute; inset:-20%; z-index:-1;
+  background:
+    radial-gradient(60% 80% at 78% 38%, rgba(208,135,96,.45) 0%, rgba(208,135,96,0) 60%),
+    conic-gradient(from var(--ember-angle), #2D1A11, #4a261a 18%, #8B3A3A 30%, #2D1A11 48%, #1a0e08 78%, #2D1A11 100%);
+  filter:blur(8px) saturate(118%);
+  animation:emberDrift 38s linear infinite;
+}
+@keyframes emberDrift { to { --ember-angle: 360deg; } }
+@media (prefers-reduced-motion: reduce){
+  .hero::before{ animation:none; }
+}
+
+.hero__inner{
+  max-width:var(--max); margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:clamp(1.5rem, 3vw, 2.5rem);
+}
+.hero__eyebrow{
+  display:flex; flex-wrap:wrap; gap:.9rem 2rem; align-items:baseline;
+  font-size:.78rem; letter-spacing:.22em; text-transform:uppercase;
+  color:rgba(244,228,188,.7);
+}
+.hero__eyebrow span:not(:last-child)::after{
+  content:"·"; margin-left:2rem; color:var(--ember);
+}
+.hero__title{
+  font-size:clamp(3.6rem, 14vw, 13rem);
+  font-weight:700;
+  font-variation-settings:"opsz" 144, "SOFT" 80;
+  letter-spacing:-0.045em;
+  line-height:.88;
+  color:var(--paper);
+}
+.hero__title em{
+  font-style:italic;
+  font-variation-settings:"opsz" 144, "SOFT" 100;
+  color:var(--ember);
+  display:inline-block;
+}
+.hero__tag{
+  font-family:var(--serif);
+  font-style:italic;
+  font-variation-settings:"opsz" 72, "SOFT" 80;
+  font-weight:400;
+  font-size:clamp(1.35rem, 2.4vw, 2.1rem);
+  color:var(--paper);
+  max-width:34ch;
+  line-height:1.18;
+}
+.hero__meta{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(14rem, 1fr));
+  gap:1.6rem 2.5rem;
+  align-items:end;
+  padding-top:clamp(1rem, 2vw, 2rem);
+  border-top:1px solid rgba(244,228,188,.22);
+  margin-top:clamp(.5rem, 1vw, 1rem);
+}
+.hero__meta dt{
+  font-size:.72rem; letter-spacing:.22em; text-transform:uppercase;
+  color:rgba(244,228,188,.62);
+  margin-bottom:.45rem;
+}
+.hero__meta dd{
+  margin:0;
+  font-family:var(--serif);
+  font-variation-settings:"opsz" 36, "SOFT" 50;
+  font-weight:500;
+  font-size:1.18rem;
+  line-height:1.3;
+}
+.hero__meta dd a{
+  text-decoration:none;
+  border-bottom:1px solid rgba(244,228,188,.32);
+  transition:border-color .25s ease, color .25s ease;
+}
+.hero__meta dd a:hover{ color:var(--ember); border-color:var(--ember); }
+.hero__badge{
+  display:inline-flex; align-items:center; gap:.55rem;
+  margin-top:1.4rem;
+  padding:.5rem .9rem;
+  background:rgba(244,228,188,.08);
+  border:1px solid rgba(244,228,188,.22);
+  border-radius:999px;
+  font-size:.76rem; letter-spacing:.16em; text-transform:uppercase;
+  color:rgba(244,228,188,.86);
+  font-weight:600;
+}
+.hero__badge svg{ width:.95rem; height:.95rem; color:var(--ember); }
+
+/* ─── marquee strip ────────────────────────────────────────────────── */
+.marquee{
+  background:var(--brick);
+  color:var(--paper);
+  overflow:hidden;
+  border-block:1px solid var(--brick-2);
+  --speed:46s;
+}
+.marquee__track{
+  display:inline-flex; gap:3rem; white-space:nowrap;
+  padding:1.15rem 0;
+  animation:scroll var(--speed) linear infinite;
+  font-family:var(--serif);
+  font-variation-settings:"opsz" 36, "SOFT" 60;
+  font-size:clamp(1.05rem, 1.8vw, 1.45rem);
+  font-weight:500;
+  letter-spacing:.005em;
+}
+.marquee__track span{ display:inline-flex; align-items:center; gap:3rem; }
+.marquee__sep{ color:var(--ember); font-style:italic; }
+@keyframes scroll { to { transform:translateX(-50%); } }
+@media (prefers-reduced-motion: reduce){
+  .marquee__track{ animation:none; transform:none; }
+}
+
+/* ─── section base ─────────────────────────────────────────────────── */
+section{ position:relative; }
+.section{ padding:clamp(3.5rem, 8vw, 7rem) var(--gutter); }
+.section__inner{ max-width:var(--max); margin:0 auto; }
+.section__eyebrow{
+  display:inline-flex; align-items:center; gap:.7rem;
+  font-size:.74rem; letter-spacing:.24em; text-transform:uppercase;
+  color:var(--brick);
+  font-weight:600;
+  margin-bottom:1.4rem;
+}
+.section__eyebrow::before{
+  content:""; width:1.6rem; height:1px; background:currentColor;
+}
+.section__title{
+  font-size:clamp(2.4rem, 5vw + .6rem, 5.4rem);
+  font-variation-settings:"opsz" 120, "SOFT" 60;
+  max-width:18ch;
+}
+.section__title em{
+  font-style:italic;
+  font-variation-settings:"opsz" 120, "SOFT" 100;
+  color:var(--brick);
+}
+
+/* ─── about · cream slab ───────────────────────────────────────────── */
+.about{ background:var(--paper); color:var(--smoke); }
+.about__grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:clamp(2rem, 4vw, 3.5rem);
+  margin-top:clamp(2rem, 3vw, 3rem);
+}
+@media (min-width: 56rem){
+  .about__grid{ grid-template-columns:1.2fr 1fr; gap:5rem; align-items:start; }
+}
+.about__lead{
+  font-family:var(--serif);
+  font-variation-settings:"opsz" 36, "SOFT" 50;
+  font-weight:400;
+  font-size:clamp(1.35rem, 2vw + .4rem, 1.85rem);
+  line-height:1.32;
+  text-wrap:pretty;
+  color:var(--smoke);
+}
+.about__lead em{ font-style:italic; color:var(--brick); }
+.about__body{ font-size:1.02rem; line-height:1.65; }
+.about__body p + p{ margin-top:1em; }
+.about__pulls{
+  display:grid; gap:1.1rem;
+  margin-top:2rem;
+}
+.about__pull{
+  padding:1.15rem 1.4rem;
+  border-left:3px solid var(--brick);
+  background:var(--bone);
+  font-family:var(--serif);
+  font-style:italic;
+  font-variation-settings:"opsz" 36, "SOFT" 80;
+  font-size:1.08rem;
+  line-height:1.4;
+}
+.about__pull cite{
+  display:block;
+  font-family:var(--sans);
+  font-style:normal;
+  font-size:.74rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--ember-2);
+  margin-top:.55rem;
+}
+
+/* ─── menu · broadsheet ────────────────────────────────────────────── */
+.menu{
+  background:var(--bone);
+  color:var(--smoke);
+  border-block:1px solid var(--rule);
+}
+.menu__head{ display:flex; flex-wrap:wrap; gap:2rem; align-items:flex-end; justify-content:space-between; margin-bottom:clamp(2rem, 4vw, 3.5rem); }
+.menu__head p{ max-width:32ch; margin:0; color:var(--smoke); opacity:.78; }
+
+.menu__grid{
+  display:grid; gap:clamp(2.5rem, 4vw, 4rem);
+  grid-template-columns:1fr;
+}
+@media (min-width: 56rem){
+  .menu__grid{ grid-template-columns:1fr 1fr; column-gap:5rem; }
+}
+.menu__section h3{
+  font-size:clamp(1.65rem, 2.2vw + .4rem, 2.2rem);
+  font-variation-settings:"opsz" 72, "SOFT" 70;
+  margin-bottom:.4rem;
+}
+.menu__section h3 em{
+  font-style:italic;
+  font-variation-settings:"opsz" 72, "SOFT" 100;
+  color:var(--ember-2);
+}
+.menu__section > p{
+  font-size:.95rem; opacity:.7; max-width:48ch; margin-bottom:1.4rem;
+}
+.menu__list{ list-style:none; padding:0; margin:0; }
+.menu__list li{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:.6rem 1rem;
+  align-items:baseline;
+  padding:.95rem 0;
+  border-top:1px dotted var(--rule);
+  font-family:var(--serif);
+  font-variation-settings:"opsz" 36, "SOFT" 50;
+}
+.menu__list li:last-child{ border-bottom:1px dotted var(--rule); }
+.menu__name{
+  font-weight:600;
+  font-size:1.12rem;
+}
+.menu__name em{
+  display:block;
+  font-style:italic;
+  font-weight:400;
+  font-size:.84rem;
+  font-family:var(--sans);
+  letter-spacing:.02em;
+  color:var(--smoke);
+  opacity:.62;
+  margin-top:.15rem;
+}
+.menu__price{
+  font-feature-settings:"tnum";
+  font-weight:600;
+  color:var(--brick);
+  font-size:1.08rem;
+  font-variation-settings:"opsz" 36, "SOFT" 30;
+}
+.menu__price--word{
+  font-style:italic;
+  color:var(--ember-2);
+  font-weight:400;
+  font-size:.92rem;
+  letter-spacing:.04em;
+}
+.menu__foot{
+  margin-top:clamp(2.5rem, 4vw, 3.5rem);
+  padding-top:1.8rem;
+  border-top:1px solid var(--rule);
+  display:grid; gap:1rem;
+  grid-template-columns:1fr;
+  align-items:center;
+  font-size:.92rem;
+  color:var(--smoke); opacity:.78;
+}
+@media (min-width: 48rem){
+  .menu__foot{ grid-template-columns:1fr auto; }
+}
+.menu__cta{
+  justify-self:start;
+  display:inline-flex; align-items:center; gap:.6rem;
+  background:var(--smoke);
+  color:var(--paper);
+  text-decoration:none;
+  padding:.85rem 1.4rem;
+  font-family:var(--serif);
+  font-variation-settings:"opsz" 36, "SOFT" 50;
+  font-weight:600;
+  font-size:1rem;
+  letter-spacing:.02em;
+  border-radius:2px;
+  transition:background .25s ease, color .25s ease;
+}
+.menu__cta:hover{ background:var(--brick); color:var(--paper); }
+.menu__cta svg{ width:1rem; height:1rem; }
+@media (min-width: 48rem){
+  .menu__cta{ justify-self:end; }
+}
+
+/* ─── brick slab · sharing platter callout ─────────────────────────── */
+.callout{
+  background:var(--brick);
+  color:var(--paper);
+  position:relative;
+  overflow:hidden;
+}
+.callout::before{
+  content:""; position:absolute; inset:0;
+  background:
+    repeating-linear-gradient(135deg,
+      rgba(244,228,188,.04) 0 1px,
+      transparent 1px 18px);
+  pointer-events:none;
+}
+.callout__inner{
+  max-width:var(--max); margin:0 auto;
+  display:grid; gap:clamp(1.5rem, 3vw, 2.5rem);
+  grid-template-columns:1fr; align-items:center;
+  position:relative;
+}
+@media (min-width: 56rem){
+  .callout__inner{ grid-template-columns:1.4fr 1fr; gap:5rem; }
+}
+.callout__title{
+  font-size:clamp(2.2rem, 4.5vw, 4rem);
+  font-variation-settings:"opsz" 120, "SOFT" 80;
+  color:var(--paper);
+  line-height:1;
+}
+.callout__title em{
+  font-style:italic;
+  font-variation-settings:"opsz" 120, "SOFT" 100;
+  color:var(--ember);
+}
+.callout p{
+  font-size:1.05rem; line-height:1.55;
+  color:rgba(244,228,188,.86);
+  max-width:42ch;
+  margin-top:1.2rem;
+}
+.callout__meta{
+  font-family:var(--serif);
+  font-variation-settings:"opsz" 36, "SOFT" 60;
+  font-size:.94rem;
+  letter-spacing:.02em;
+  display:grid; gap:.55rem;
+  padding-left:clamp(0rem, 2vw, 1.5rem);
+  border-left:1px solid rgba(244,228,188,.28);
+}
+.callout__meta b{ font-weight:600; color:var(--paper); }
+.callout__meta span{ opacity:.78; font-style:italic; }
+
+/* ─── gallery ──────────────────────────────────────────────────────── */
+.gallery{ background:var(--paper); }
+.gallery__grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1.1rem;
+  margin-top:clamp(2rem, 3vw, 3rem);
+}
+@media (min-width: 44rem){
+  .gallery__grid{ grid-template-columns:repeat(2, 1fr); gap:1.4rem; }
+}
+@media (min-width: 70rem){
+  .gallery__grid{ grid-template-columns:repeat(4, 1fr); }
+}
+.tile{
+  aspect-ratio:4/5;
+  position:relative;
+  overflow:hidden;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  padding:1.2rem 1.3rem 1.3rem;
+  color:var(--paper);
+  background:var(--smoke);
+  border-radius:2px;
+  isolation:isolate;
+}
+.tile__eyebrow{
+  font-size:.7rem; letter-spacing:.22em; text-transform:uppercase;
+  color:rgba(244,228,188,.7);
+  margin-bottom:.4rem;
+  font-weight:500;
+}
+.tile__title{
+  font-family:var(--serif);
+  font-variation-settings:"opsz" 60, "SOFT" 70;
+  font-weight:600;
+  font-size:1.4rem;
+  line-height:1.12;
+  max-width:18ch;
+}
+.tile__title em{
+  font-style:italic;
+  font-variation-settings:"opsz" 60, "SOFT" 100;
+}
+
+/* tile · 1 · grill */
+.tile--grill::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:
+    radial-gradient(40% 25% at 50% 78%, rgba(208,135,96,.55), transparent 70%),
+    radial-gradient(60% 35% at 50% 92%, rgba(139,58,58,.7), transparent 75%),
+    repeating-linear-gradient(90deg,
+      rgba(244,228,188,.08) 0 1px,
+      transparent 1px 14px),
+    linear-gradient(180deg, #1A0E08 0%, #2D1A11 55%, #4A261A 100%);
+}
+.tile--grill::after{
+  content:""; position:absolute; left:50%; bottom:18%; transform:translateX(-50%);
+  width:60%; height:.25rem; border-radius:999px;
+  background:linear-gradient(90deg, transparent, var(--ember) 30%, #f5c97e 50%, var(--ember) 70%, transparent);
+  filter:blur(2px);
+  opacity:.85;
+}
+/* tile · 2 · mural (Istanbul skyline silhouette) */
+.tile--mural{ background:var(--brick); color:var(--paper); }
+.tile--mural::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:
+    radial-gradient(80% 60% at 50% 35%, rgba(244,228,188,.18), transparent 65%),
+    linear-gradient(180deg, #8B3A3A 0%, #6E2A2A 100%);
+}
+.tile--mural::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:38%;
+  height:42%;
+  background:
+    /* domes & minarets · pure CSS silhouette */
+    radial-gradient(circle at 12% 100%, var(--smoke) 0 14%, transparent 14.5%),
+    radial-gradient(circle at 22% 100%, var(--smoke) 0 11%, transparent 11.5%),
+    radial-gradient(circle at 36% 100%, var(--smoke) 0 16%, transparent 16.5%),
+    radial-gradient(circle at 52% 100%, var(--smoke) 0 13%, transparent 13.5%),
+    radial-gradient(circle at 68% 100%, var(--smoke) 0 18%, transparent 18.5%),
+    radial-gradient(circle at 84% 100%, var(--smoke) 0 12%, transparent 12.5%),
+    linear-gradient(transparent 60%, var(--smoke) 60%);
+  mask:linear-gradient(black 60%, transparent 100%);
+}
+/* tile · 3 · kilim stripe */
+.tile--kilim{ color:var(--smoke); }
+.tile--kilim::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:
+    linear-gradient(180deg, var(--paper) 0%, var(--bone) 100%);
+}
+.tile--kilim::after{
+  content:"";
+  position:absolute; inset:9% 8% 32% 8%;
+  background:
+    /* horizontal kilim bands */
+    repeating-linear-gradient(180deg,
+      var(--brick) 0 12px,
+      var(--ember) 12px 18px,
+      var(--smoke) 18px 22px,
+      var(--bone) 22px 30px,
+      var(--ember-2) 30px 36px,
+      var(--brick) 36px 50px,
+      var(--bone) 50px 56px),
+    /* diamond overlay */
+    repeating-conic-gradient(from 45deg at 50% 50%,
+      transparent 0deg 75deg,
+      rgba(45,26,17,.12) 75deg 90deg);
+  border:1px solid rgba(45,26,17,.18);
+}
+.tile--kilim .tile__eyebrow{ color:var(--ember-2); }
+.tile--kilim .tile__title{ color:var(--smoke); }
+/* tile · 4 · garden (evening) */
+.tile--garden::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:
+    radial-gradient(60% 40% at 50% 25%, rgba(208,135,96,.4), transparent 70%),
+    radial-gradient(circle at 30% 30%, rgba(244,228,188,.5) 0 .12rem, transparent .14rem),
+    radial-gradient(circle at 70% 22%, rgba(244,228,188,.45) 0 .1rem, transparent .12rem),
+    radial-gradient(circle at 48% 38%, rgba(244,228,188,.4) 0 .09rem, transparent .11rem),
+    radial-gradient(circle at 82% 35%, rgba(244,228,188,.4) 0 .1rem, transparent .12rem),
+    radial-gradient(circle at 18% 45%, rgba(244,228,188,.35) 0 .08rem, transparent .1rem),
+    linear-gradient(180deg, #1A0E08 0%, #3D2418 60%, #6E3A1A 100%);
+}
+.tile--garden::after{
+  content:""; position:absolute; left:0; right:0; bottom:30%; height:34%;
+  background:
+    /* foliage suggestion */
+    radial-gradient(ellipse 30% 60% at 20% 80%, rgba(56,72,40,.85), transparent 70%),
+    radial-gradient(ellipse 35% 70% at 80% 75%, rgba(56,72,40,.8), transparent 70%),
+    radial-gradient(ellipse 25% 50% at 50% 85%, rgba(56,72,40,.7), transparent 70%);
+}
+
+.gallery__note{
+  margin-top:2rem;
+  font-family:var(--serif);
+  font-style:italic;
+  font-variation-settings:"opsz" 24, "SOFT" 60;
+  font-size:1rem;
+  opacity:.65;
+  text-align:center;
+  max-width:48ch;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* ─── contact · letterhead ─────────────────────────────────────────── */
+.contact{ background:var(--smoke); color:var(--paper); }
+.contact .section__eyebrow{ color:var(--ember); }
+.contact .section__title{ color:var(--paper); }
+.contact .section__title em{ color:var(--ember); }
+.contact__grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:clamp(2rem, 4vw, 3.5rem);
+  margin-top:clamp(2rem, 3vw, 3rem);
+}
+@media (min-width: 56rem){
+  .contact__grid{ grid-template-columns:1fr 1.2fr; gap:4rem; }
+}
+.letterhead{
+  display:grid; gap:1.6rem;
+  font-family:var(--serif);
+  font-variation-settings:"opsz" 36, "SOFT" 60;
+}
+.letterhead__row{
+  border-top:1px solid rgba(244,228,188,.22);
+  padding-top:1.1rem;
+}
+.letterhead__row:first-child{ border-top:0; padding-top:0; }
+.letterhead__label{
+  display:block;
+  font-family:var(--sans);
+  font-size:.72rem; letter-spacing:.22em; text-transform:uppercase;
+  color:rgba(244,228,188,.62);
+  margin-bottom:.5rem;
+  font-weight:600;
+}
+.letterhead__value{
+  font-size:clamp(1.2rem, 1.6vw, 1.5rem);
+  line-height:1.35;
+  font-weight:500;
+}
+.letterhead__value a{
+  text-decoration:none;
+  border-bottom:1px solid rgba(244,228,188,.32);
+  transition:color .25s ease, border-color .25s ease;
+}
+.letterhead__value a:hover{ color:var(--ember); border-color:var(--ember); }
+
+.hours{
+  list-style:none; padding:0; margin:0;
+  display:grid; gap:.55rem;
+  font-feature-settings:"tnum";
+}
+.hours li{
+  display:grid; grid-template-columns:1fr auto; gap:1rem; align-items:baseline;
+  font-size:1.05rem;
+  border-bottom:1px dotted rgba(244,228,188,.18);
+  padding-bottom:.55rem;
+}
+.hours li:last-child{ border-bottom:0; }
+.hours li b{ font-weight:500; font-variation-settings:"opsz" 36, "SOFT" 40; }
+.hours li span{ color:var(--ember); font-style:italic; font-variation-settings:"opsz" 36, "SOFT" 80; }
+
+.map{
+  width:100%;
+  aspect-ratio:4/3;
+  border:0;
+  border-radius:2px;
+  filter:saturate(.78) contrast(.92);
+  background:#1a0e08;
+}
+
+/* ─── footer ───────────────────────────────────────────────────────── */
+.footer{
+  background:var(--smoke-2);
+  color:rgba(244,228,188,.7);
+  padding:clamp(3rem, 5vw, 4.5rem) var(--gutter);
+  border-top:1px solid rgba(244,228,188,.1);
+}
+.footer__inner{
+  max-width:var(--max); margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:2.5rem;
+}
+@media (min-width: 56rem){
+  .footer__inner{ grid-template-columns:2fr 1fr 1fr; gap:4rem; align-items:start; }
+}
+.footer__mark{
+  font-family:var(--serif);
+  font-variation-settings:"opsz" 96, "SOFT" 80;
+  font-weight:600;
+  font-size:clamp(2.2rem, 4vw, 3.4rem);
+  line-height:.95;
+  color:var(--paper);
+  letter-spacing:-0.02em;
+  margin-bottom:1rem;
+}
+.footer__mark em{ font-style:italic; color:var(--ember); font-variation-settings:"opsz" 96, "SOFT" 100; }
+.footer__line{ font-size:.95rem; line-height:1.6; max-width:42ch; }
+.footer__title{
+  font-family:var(--sans);
+  font-size:.72rem; letter-spacing:.22em; text-transform:uppercase;
+  color:rgba(244,228,188,.55);
+  font-weight:600;
+  margin-bottom:.9rem;
+}
+.footer__list{ list-style:none; padding:0; margin:0; font-family:var(--serif); font-variation-settings:"opsz" 24, "SOFT" 50; }
+.footer__list li{ padding:.35rem 0; font-size:1rem; }
+.footer__list a{ text-decoration:none; border-bottom:1px solid transparent; transition:border-color .25s ease, color .25s ease; }
+.footer__list a:hover{ color:var(--ember); border-color:var(--ember); }
+.footer__bottom{
+  max-width:var(--max);
+  margin:3rem auto 0;
+  padding-top:1.4rem;
+  border-top:1px solid rgba(244,228,188,.1);
+  display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem;
+  font-size:.78rem; letter-spacing:.06em;
+  color:rgba(244,228,188,.45);
+}
+
+/* ─── scroll-driven reveal · no JS ─────────────────────────────────── */
+@supports (animation-timeline: view()) {
+  .reveal{
+    animation:rise both;
+    animation-timeline:view();
+    animation-range: entry 5% cover 28%;
+  }
+  @keyframes rise{
+    from{ opacity:0; transform:translateY(1.6rem); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  .reveal{ animation:none; opacity:1; transform:none; }
+}
+
+/* utility */
+.visually-hidden{
+  clip:rect(0 0 0 0); clip-path:inset(50%);
+  height:1px; width:1px; overflow:hidden;
+  position:absolute; white-space:nowrap;
+}
+</style>
+</head>
+<body>
+
+<a class="visually-hidden" href="#home">Skip to content</a>
+
+<nav class="nav" aria-label="Primary">
+  <a href="#home" class="nav__brand"><em>·</em>Akdeniz</a>
+  <ul class="nav__links">
+    <li><a href="#story">Story</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#room">The Room</a></li>
+    <li><a href="#find">Find Us</a></li>
+  </ul>
+  <a class="nav__call" href="tel:+441223301388" aria-label="Call Akdeniz on 01223 301 388">01223 301 388</a>
+</nav>
+
+<!-- ─── HOME · hero ──────────────────────────────────────────────── -->
+<header class="hero" id="home">
+  <div class="hero__inner">
+    <div class="hero__eyebrow">
+      <span>Mediterranean&nbsp;BBQ</span>
+      <span>East&nbsp;Road · Cambridge</span>
+      <span>Open until midnight</span>
+    </div>
+
+    <h1 class="hero__title">Akdeniz<em>.</em></h1>
+
+    <p class="hero__tag">Taste the Mediterranean&nbsp;—<br>charcoal grill on East Road since <em>2013</em>.</p>
+
+    <div class="hero__badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M12 2 L14 9 L21 9 L15.5 13 L17.5 20 L12 16 L6.5 20 L8.5 13 L3 9 L10 9 Z"/>
+      </svg>
+      British Kebab Awards · 2018 · Highly Recommended
+    </div>
+
+    <dl class="hero__meta">
+      <div>
+        <dt>Reservations &amp; orders</dt>
+        <dd><a href="tel:+441223301388">01223&nbsp;301&nbsp;388</a></dd>
+      </div>
+      <div>
+        <dt>Find the door</dt>
+        <dd>181 East Road · CB1&nbsp;1BG</dd>
+      </div>
+      <div>
+        <dt>Tonight</dt>
+        <dd>Charcoal lit · grill on until <em style="color:var(--ember);font-style:italic">midnight</em></dd>
+      </div>
+    </dl>
+  </div>
+</header>
+
+<!-- ─── MARQUEE ──────────────────────────────────────────────────── -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>
+      Charcoal grill since 2013
+      <em class="marquee__sep">✦</em>
+      Karişik kebab · house mix grill
+      <em class="marquee__sep">✦</em>
+      İskender · Kuzu İncik · Chicken Beyti
+      <em class="marquee__sep">✦</em>
+      Mezes &amp; sharing platters
+      <em class="marquee__sep">✦</em>
+      Halal · vegetarian · vegan · gluten-free
+      <em class="marquee__sep">✦</em>
+      Open until midnight
+      <em class="marquee__sep">✦</em>
+      Call 01223 301 388
+      <em class="marquee__sep">✦</em>
+    </span>
+    <span>
+      Charcoal grill since 2013
+      <em class="marquee__sep">✦</em>
+      Karişik kebab · house mix grill
+      <em class="marquee__sep">✦</em>
+      İskender · Kuzu İncik · Chicken Beyti
+      <em class="marquee__sep">✦</em>
+      Mezes &amp; sharing platters
+      <em class="marquee__sep">✦</em>
+      Halal · vegetarian · vegan · gluten-free
+      <em class="marquee__sep">✦</em>
+      Open until midnight
+      <em class="marquee__sep">✦</em>
+      Call 01223 301 388
+      <em class="marquee__sep">✦</em>
+    </span>
+  </div>
+</div>
+
+<!-- ─── ABOUT · story ────────────────────────────────────────────── -->
+<section class="section about reveal" id="story">
+  <div class="section__inner">
+    <span class="section__eyebrow">The Story</span>
+    <h2 class="section__title">A Turkish room on East Road, <em>quietly excellent</em> since 2013.</h2>
+
+    <div class="about__grid">
+      <div>
+        <p class="about__lead">
+          Akdeniz means <em>Mediterranean</em> in Turkish — and the name has been earned, plate by plate, on a stretch of East Road that Cambridge locals know well.
+        </p>
+        <div class="about__body">
+          <p>
+            The room opened in 2013 as <em>Merhaba</em> and has become a much-loved Turkish address in the city — recommended at the British Kebab Awards in 2018 and still run with the same care a decade on.
+          </p>
+          <p>
+            The walls carry large atmospheric murals of Istanbul and the cities of the Mediterranean, painted by local Turkish artists. The charcoal grill works through the evening with the unmistakable sizzle of lamb shish and chicken beyti; the garden out the back opens onto Adam &amp; Eve Street, cool under summer evenings.
+          </p>
+          <p>
+            None of it has changed much — and that's the point.
+          </p>
+        </div>
+      </div>
+
+      <aside class="about__pulls" aria-label="What guests are saying">
+        <blockquote class="about__pull">
+          “Superbly cooked chicken — succulent, juicy, infused with a smoky flavour. The doner stood out as incredibly clean and light.”
+          <cite>— Cambridge Foodies review, 2025</cite>
+        </blockquote>
+        <blockquote class="about__pull">
+          “A cosy, unassuming Turkish restaurant. Wonderfully unchanged. Staff exceptionally friendly, truly going above and beyond.”
+          <cite>— Review · East Road regular</cite>
+        </blockquote>
+        <blockquote class="about__pull">
+          “An excellent testament to the magic of a charcoal grill — all without breaking the bank.”
+          <cite>— Cambridge Foodies, 2025</cite>
+        </blockquote>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MENU · broadsheet ────────────────────────────────────────── -->
+<section class="section menu reveal" id="menu">
+  <div class="section__inner">
+    <span class="section__eyebrow">From the Charcoal Grill</span>
+
+    <div class="menu__head">
+      <h2 class="section__title">The Menu, <em>set in our hand</em>.</h2>
+      <p>
+        Four house specials below, in pounds sterling, prepared on the charcoal grill. A full menu of mezes, lunch dishes, sharing platters and vegetarian / vegan options is in the room and on Deliveroo &amp; Just Eat.
+      </p>
+    </div>
+
+    <div class="menu__grid">
+
+      <div class="menu__section">
+        <h3><em>House</em> Specials</h3>
+        <p>Cooked over open charcoal · served with rice or chips, salad, and warm pita.</p>
+        <ul class="menu__list">
+          <li>
+            <span class="menu__name">Karişik Kebab <em>House mix grill — lamb shish, chicken shish, kofte, lamb chop, wing</em></span>
+            <span class="menu__price">£25.95</span>
+          </li>
+          <li>
+            <span class="menu__name">İskender Kebab <em>Sliced döner on pita, tomato sauce, melted butter, yoghurt</em></span>
+            <span class="menu__price">£19.95</span>
+          </li>
+          <li>
+            <span class="menu__name">Kuzu İncik <em>Slow-cooked lamb shank, herbed sauce, mash</em></span>
+            <span class="menu__price">£19.95</span>
+          </li>
+          <li>
+            <span class="menu__name">Chicken Beyti <em>Spiced ground chicken, wrapped in pita, yoghurt, tomato butter</em></span>
+            <span class="menu__price">£19.95</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="menu__section">
+        <h3>What <em>else</em> is on</h3>
+        <p>Categories on the in-room menu — call to ask after tonight's specials.</p>
+        <ul class="menu__list">
+          <li>
+            <span class="menu__name">Cold &amp; hot mezes <em>Hummus, cacık, sigara börek, kalamar — to share or start</em></span>
+            <span class="menu__price menu__price--word">on the menu</span>
+          </li>
+          <li>
+            <span class="menu__name">Sharing platters <em>For two or four — chicken, lamb, kofte, rice, chips, pita, baklava</em></span>
+            <span class="menu__price menu__price--word">on request</span>
+          </li>
+          <li>
+            <span class="menu__name">Lunch menu <em>Popular dishes at unbeatable lunchtime prices</em></span>
+            <span class="menu__price menu__price--word">12:00–17:00</span>
+          </li>
+          <li>
+            <span class="menu__name">Vegetarian, vegan, halal, gluten-free <em>Clearly marked options across the menu</em></span>
+            <span class="menu__price menu__price--word">all served</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="menu__foot">
+      <p>
+        Allergens, ingredients and tonight's specials confirmed by phone. Reservations recommended on weekends and event nights.
+      </p>
+      <a class="menu__cta" href="tel:+441223301388" aria-label="Call to book or order">
+        Call to book or order
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 4h4l2 5-3 2a12 12 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 6a2 2 0 0 1 2-2z"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── CALLOUT · sharing platter slab ───────────────────────────── -->
+<section class="section callout reveal" aria-label="Sharing platter">
+  <div class="callout__inner">
+    <div>
+      <h2 class="callout__title">For the table — <em>the sharing platter</em>.</h2>
+      <p>
+        The platter for two arrives heaped: diverse chicken and lamb from the grill, rice, chips, warm pita that pulls in thick steaming strips, and a little baklava to finish. The way most regulars order, most nights.
+      </p>
+    </div>
+    <div class="callout__meta">
+      <div><b>To reserve</b><br><span>Call ahead — 01223 301 388</span></div>
+      <div><b>For takeaway</b><br><span>Deliveroo · Just Eat · or collection</span></div>
+      <div><b>The garden</b><br><span>Open out to Adam &amp; Eve Street, summer evenings</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── GALLERY ──────────────────────────────────────────────────── -->
+<section class="section gallery reveal" id="room">
+  <div class="section__inner">
+    <span class="section__eyebrow">The Room</span>
+    <h2 class="section__title">Painted Istanbul on the walls, <em>charcoal on the air</em>.</h2>
+
+    <div class="gallery__grid" role="list">
+      <article class="tile tile--grill" role="listitem">
+        <span class="tile__eyebrow">No. 01</span>
+        <h3 class="tile__title">The charcoal grill, <em>mid-sizzle</em></h3>
+      </article>
+      <article class="tile tile--mural" role="listitem">
+        <span class="tile__eyebrow">No. 02</span>
+        <h3 class="tile__title">Painted <em>Istanbul</em>, on the back wall</h3>
+      </article>
+      <article class="tile tile--kilim" role="listitem">
+        <span class="tile__eyebrow">No. 03</span>
+        <h3 class="tile__title">Kilim &amp; copper, <em>table to table</em></h3>
+      </article>
+      <article class="tile tile--garden" role="listitem">
+        <span class="tile__eyebrow">No. 04</span>
+        <h3 class="tile__title">The garden, <em>cool summer evenings</em></h3>
+      </article>
+    </div>
+
+    <p class="gallery__note">
+      Photographs of the room and the food are coming — for now, come and see the murals in person.
+    </p>
+  </div>
+</section>
+
+<!-- ─── CONTACT · letterhead ─────────────────────────────────────── -->
+<section class="section contact reveal" id="find">
+  <div class="section__inner">
+    <span class="section__eyebrow">Find the door</span>
+    <h2 class="section__title">181 East Road &mdash; <em>Cambridge</em>, CB1 1BG.</h2>
+
+    <div class="contact__grid">
+      <div class="letterhead" aria-label="Contact details">
+
+        <div class="letterhead__row">
+          <span class="letterhead__label">Address</span>
+          <span class="letterhead__value">
+            Akdeniz Mediterranean BBQ<br>
+            181 East Road<br>
+            Cambridge · CB1 1BG
+          </span>
+        </div>
+
+        <div class="letterhead__row">
+          <span class="letterhead__label">Telephone</span>
+          <span class="letterhead__value">
+            <a href="tel:+441223301388">01223&nbsp;301&nbsp;388</a>
+          </span>
+        </div>
+
+        <div class="letterhead__row">
+          <span class="letterhead__label">Opening hours</span>
+          <ul class="hours">
+            <li><b>Monday – Friday</b><span>14:00 — midnight</span></li>
+            <li><b>Saturday</b><span>12:00 — midnight</span></li>
+            <li><b>Sunday</b><span>14:00 — midnight</span></li>
+          </ul>
+        </div>
+
+        <div class="letterhead__row">
+          <span class="letterhead__label">Order out</span>
+          <span class="letterhead__value">
+            Deliveroo · Just Eat · or collection at the door
+          </span>
+        </div>
+
+      </div>
+
+      <div>
+        <iframe
+          class="map"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Map showing Akdeniz Mediterranean BBQ at 181 East Road, Cambridge CB1 1BG"
+          src="https://www.google.com/maps?q=181+East+Road,+Cambridge+CB1+1BG&output=embed">
+        </iframe>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── FOOTER ───────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <div class="footer__mark">Akdeniz<em>.</em></div>
+      <p class="footer__line">
+        Mediterranean BBQ &amp; Turkish charcoal grill · 181 East Road, Cambridge CB1 1BG · trading on East Road since 2013 (formerly Merhaba) · British Kebab Awards 2018, Highly Recommended.
+      </p>
+    </div>
+
+    <div>
+      <div class="footer__title">The room</div>
+      <ul class="footer__list">
+        <li><a href="#story">The Story</a></li>
+        <li><a href="#menu">The Menu</a></li>
+        <li><a href="#room">The Room</a></li>
+        <li><a href="#find">Find Us</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer__title">Reach us</div>
+      <ul class="footer__list">
+        <li><a href="tel:+441223301388">01223 301 388</a></li>
+        <li>181 East Road, Cambridge</li>
+        <li>CB1 1BG</li>
+        <li>Open daily until midnight</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <span>&copy; Akdeniz Mediterranean BBQ · Cambridge</span>
+    <span>Charcoal lit nightly · 14:00 — midnight</span>
+  </div>
+</footer>
+
+</body>
+</html>
